@@ -35,13 +35,25 @@
             <div id="code"></div>
             <div id="credits"></div>
             <div id="msg"></div>
+            <div id="irony"></div>
+            <div id="model"></div>
+            <div id="sub"></div>
+            <div id="confidence"></div>
         </section>
     </main>
 
     <footer>
         <p>This is a footer</p>
     </footer>
-
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
 </body>
 
 </html>

@@ -9,12 +9,13 @@ function handleSubmit(event) {
     fetch('http://localhost:8081/test')
         .then(res => res.json())
         .then(function (res1) {
-            console.log(res1);
+            console.log(res1.key);
             // document.getElementById('results').innerHTML = res1
-
             const formdata = new FormData();
-            formdata.append("key", res1);
-            formdata.append("txt", "Successfully Submitted");
+            const text = "The key has been received and the server has sent the response on the API call."
+
+            formdata.append("key", res1.key);
+            formdata.append("txt", text);
             formdata.append("lang", "en");  // 2-letter code, like en es fr ...
 
             const requestOptions = {
@@ -29,6 +30,10 @@ function handleSubmit(event) {
                     document.getElementById('code').innerHTML = `CODE : ${response1.status.code}`
                     document.getElementById('credits').innerHTML = `CREDITS : ${response1.status.credits}`
                     document.getElementById('msg').innerHTML = `MESSAGE : ${response1.status.msg}`
+                    document.getElementById('irony').innerHTML = `IRONY : ${response1.irony}`
+                    document.getElementById('model').innerHTML = `MODEL : ${response1.status.msg}`
+                    document.getElementById('sub').innerHTML = `SUBJECTIVITY : ${response1.subjectivity}`
+                    document.getElementById('confidence').innerHTML = `CONFIDENCE : ${response1.confidence}`
 
 
 
