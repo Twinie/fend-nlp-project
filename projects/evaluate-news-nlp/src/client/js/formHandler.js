@@ -16,7 +16,7 @@ function handleSubmit(event) {
 
             formdata.append("key", res1.key);
             formdata.append("txt", text);
-            formdata.append("lang", "en");  // 2-letter code, like en es fr ...
+            formdata.append("lang", "en");  // 2-letter code, like en 
 
             const requestOptions = {
                 method: 'POST',
@@ -35,14 +35,9 @@ function handleSubmit(event) {
                     document.getElementById('sub').innerHTML = `SUBJECTIVITY : ${response1.subjectivity}`
                     document.getElementById('confidence').innerHTML = `CONFIDENCE : ${response1.confidence}`
 
-
-
                 })
 
         })
-
-
-
 
 }
 

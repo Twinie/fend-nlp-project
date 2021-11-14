@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const express = require('express')
-const mockAPIResponse = require('./mockAPI.js')
+// const mockAPIResponse = require('./mockAPI.js')
 var bodyParser = require('body-parser')
 var cors = require('cors');
 const { response } = require('express');
@@ -41,8 +41,6 @@ app.listen(8081, function () {
 app.get('/test', function (req, res) {
     var APIkey = process.env.API_KEY;
     res.send({ key: APIkey })
-
-    // console.log(`Your API key is ${process.env.API_KEY}`);
 })
 
 
