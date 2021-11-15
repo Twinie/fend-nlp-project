@@ -8,8 +8,10 @@ function checkForName(inputText) {
         "Archer",
         "Georgiou"
     ]
-
-    if (names.includes(inputText)) {
+    if (inputText === "") {
+        alert("Please enter a name")
+    }
+    else if (names.includes(inputText)) {
         return "Welcome Captain!!"
     }
 }
