@@ -1,19 +1,11 @@
-function checkForName(inputText) {
-    console.log("::: Running checkForName :::", inputText);
-    let names = [
-        "Twinkle",
-        "Picard",
-        "Janeway",
-        "Kirk",
-        "Archer",
-        "Georgiou"
-    ]
-    if (inputText === "") {
-        alert("Please enter a name")
+var regex = /^[a-zA-Z.,\s]+$/;
+
+function checkForText(inputText) {
+    if (inputText.match(regex)) {
+        return true;
     }
-    else if (names.includes(inputText)) {
-        return "Welcome Captain!!"
+    else {
+        return false;
     }
 }
-
-export { checkForName }
+export { checkForText }

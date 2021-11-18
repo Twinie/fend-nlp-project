@@ -1,18 +1,21 @@
+
 function handleSubmit(event) {
     event.preventDefault()
 
     // check what text was put into the form field
-    let formText = document.getElementById('name').value
-    Client.checkForName(formText)
+    let formText = document.getElementById('feelings').value;
+    if (!Client.checkForText(formText)) {
+        alert("Please enter text!!")
+        return;
+    }
 
-    console.log("::: Form Submitted :::")
+    // ::: Form Submitted ::: 
+
     fetch('http://localhost:8081/test')
         .then(res => res.json())
         .then(function (res1) {
-            console.log(res1.key);
-            // document.getElementById('results').innerHTML = res1
             const formdata = new FormData();
-            const text = "The key has been received and the server has sent the response on the API call."
+            const text = document.getElementById('feelings').value
 
             formdata.append("key", res1.key);
             formdata.append("txt", text);
@@ -34,6 +37,7 @@ function handleSubmit(event) {
                     document.getElementById('model').innerHTML = `MODEL : ${response1.status.msg}`
                     document.getElementById('sub').innerHTML = `SUBJECTIVITY : ${response1.subjectivity}`
                     document.getElementById('confidence').innerHTML = `CONFIDENCE : ${response1.confidence}`
+                    document.getElementById('agreement').innerHTML = `AGREEMENT : ${response1.sentence_list[0].agreement}`
 
                 })
 

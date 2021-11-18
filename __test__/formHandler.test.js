@@ -1,4 +1,4 @@
-import { checkForName } from "../src/client/js/nameChecker";
+import { checkForText } from "../src/client/js/nameChecker";
 import { handleSubmit } from "../src/client/js/formHandler"
 
 describe("Testing the submit functionality", () => {
@@ -8,6 +8,6 @@ describe("Testing the submit functionality", () => {
     }),
         test("Testing the checkForName() function", () => {
 
-            expect(checkForName("Twinkle")).toBe("Welcome Captain!!")
+            expect(checkForText("123")).toBe(false)
         })
 });
